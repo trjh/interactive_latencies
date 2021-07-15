@@ -364,14 +364,14 @@
         var snappy = new Metric(6000 * getCycle(), "100ns", "Compress 1KB wth Snappy: ",
                                "snappy");
         var tenMicro = new Metric(100*100, "100ns", "", "tenMicro", ' = ' + singleBox(green));
-        var network = new Metric(getNICTransmissionDelay(getNetworkPayloadBytes()), "10us",
+        var network = new Metric(getNICTransmissionDelay(getNetworkPayloadBytes()), "ns",
               "Send " + addCommas(getNetworkPayloadBytes()) + " bytes over commodity network: ", "network");
         var ssdRandom = new Metric(getSSDLatency(), "10us", "SSD random read: ", "ssdRandom");
-        var mbMem = new Metric(getBusTransmissionDelay(getPayloadBytes()), "10us",
+        var mbMem = new Metric(getBusTransmissionDelay(getPayloadBytes()), "100ns",
                                 "Read " + addCommas(getPayloadBytes()) + " bytes sequentially from memory: ", "mbMem");
         var rtt = new Metric(getDCRTT(), "10us", "Round trip in same datacenter: ", "rtt");
         var ms = new Metric(100*100*100, "10us", "", "ms", ' = ' + singleBox(red));
-        var mbSSD = new Metric(getSSDTransmissionDelay(getPayloadBytes()), "ms",
+        var mbSSD = new Metric(getSSDTransmissionDelay(getPayloadBytes()), "10us",
                                "Read " + addCommas(getPayloadBytes()) + " bytes sequentially from SSD: ", "mbSSD");
         var seek = new Metric(getSeek(), "ms", "Disk seek: ", "seek");
         var mbDisk = new Metric(getDiskTransmissionDelay(getPayloadBytes()), "ms",
@@ -434,131 +434,131 @@
       <div class="row-fluid">
         <div class="span3">
           <div class="row-fluid">
-              <div class="span4" id="ns"></div>
-              <div class="span8" id="nst"></div>
+              <div class="span5" id="ns"></div>
+              <div class="span7" id="nst"></div>
           </div>
           <div class="row-fluid">
               <div class="span12"></div>
           </div>
           <div class="row-fluid">
-              <div class="span4" id="L1"></div>
-              <div class="span8" id="L1t"></div>
+              <div class="span5" id="L1"></div>
+              <div class="span7" id="L1t"></div>
           </div>
           <div class="row-fluid">
               <div class="span12"></div>
           </div>
           <div class="row-fluid">
-              <div class="span4" id="branch"></div>
-              <div class="span8" id="brancht"></div>
+              <div class="span5" id="branch"></div>
+              <div class="span7" id="brancht"></div>
           </div>
           <div class="row-fluid">
               <div class="span12"></div>
           </div>
           <div class="row-fluid">
-              <div class="span4" id="L2"></div>
-              <div class="span8" id="L2t"></div>
+              <div class="span5" id="L2"></div>
+              <div class="span7" id="L2t"></div>
           </div>
           <div class="row-fluid">
               <div class="span12"></div>
           </div>
           <div class="row-fluid">
-              <div class="span4" id="mutex"></div>
-              <div class="span8" id="mutext"></div>
+              <div class="span5" id="mutex"></div>
+              <div class="span7" id="mutext"></div>
           </div>
           <div class="row-fluid">
               <div class="span12"></div>
           </div>
           <div class="row-fluid">
-              <div class="span4" id="ns100"></div>
-              <div class="span8" id="ns100t"></div>
+              <div class="span5" id="network"></div>
+              <div class="span7" id="networkt"></div>
+          </div>
+          <div class="row-fluid">
+              <div class="span12"></div>
+          </div>
+          <div class="row-fluid">
+              <div class="span5" id="ns100"></div>
+              <div class="span7" id="ns100t"></div>
           </div>
         </div><!--First Column-->
         <div class="span3">
           <div class="row-fluid">
-              <div class="span4" id="mem"></div>
-              <div class="span8" id="memt"></div>
+              <div class="span5" id="mem"></div>
+              <div class="span7" id="memt"></div>
           </div>
           <div class="row-fluid">
               <div class="span12"></div>
           </div>
           <div class="row-fluid">
-              <div class="span4" id="micro"></div>
-              <div class="span8" id="microt"></div>
+              <div class="span5" id="micro"></div>
+              <div class="span7" id="microt"></div>
           </div>
           <div class="row-fluid">
               <div class="span12"></div>
           </div>
           <div class="row-fluid">
-              <div class="span4" id="snappy"></div>
-              <div class="span8" id="snappyt"></div>
+              <div class="span5" id="snappy"></div>
+              <div class="span7" id="snappyt"></div>
           </div>
           <div class="row-fluid">
               <div class="span12"></div>
           </div>
           <div class="row-fluid">
-              <div class="span4" id="tenMicro"></div>
-              <div class="span8" id="tenMicrot"></div>
+              <div class="span5" id="mbMem"></div>
+              <div class="span7" id="mbMemt"></div>
+          </div>
+          <div class="row-fluid">
+              <div class="span12"></div>
+          </div>
+          <div class="row-fluid">
+              <div class="span5" id="tenMicro"></div>
+              <div class="span7" id="tenMicrot"></div>
           </div>
         </div><!--Second Column-->
         <div class="span3">
           <div class="row-fluid">
-              <div class="span4" id="network"></div>
-              <div class="span8" id="networkt"></div>
+              <div class="span5" id="ssdRandom"></div>
+              <div class="span7" id="ssdRandomt"></div>
           </div>
           <div class="row-fluid">
               <div class="span12"></div>
           </div>
           <div class="row-fluid">
-              <div class="span4" id="ssdRandom"></div>
-              <div class="span8" id="ssdRandomt"></div>
+              <div class="span5" id="mbSSD"></div>
+              <div class="span7" id="mbSSDt"></div>
           </div>
           <div class="row-fluid">
               <div class="span12"></div>
           </div>
           <div class="row-fluid">
-              <div class="span4" id="mbMem"></div>
-              <div class="span8" id="mbMemt"></div>
+              <div class="span5" id="rtt"></div>
+              <div class="span7" id="rttt"></div>
           </div>
           <div class="row-fluid">
               <div class="span12"></div>
           </div>
           <div class="row-fluid">
-              <div class="span4" id="rtt"></div>
-              <div class="span8" id="rttt"></div>
-          </div>
-          <div class="row-fluid">
-              <div class="span12"></div>
-          </div>
-          <div class="row-fluid">
-              <div class="span4" id="ms"></div>
-              <div class="span8" id="mst"></div>
+              <div class="span5" id="ms"></div>
+              <div class="span7" id="mst"></div>
           </div>
         </div><!--Third Column-->
         <div class="span3">
           <div class="row-fluid">
-              <div class="span4" id="mbSSD"></div>
-              <div class="span8" id="mbSSDt"></div>
+              <div class="span5" id="seek"></div>
+              <div class="span7" id="seekt"></div>
           </div>
           <div class="row-fluid">
               <div class="span12"></div>
           </div>
           <div class="row-fluid">
-              <div class="span4" id="seek"></div>
-              <div class="span8" id="seekt"></div>
+              <div class="span5" id="mbDisk"></div>
+              <div class="span7" id="mbDiskt"></div>
           </div>
           <div class="row-fluid">
               <div class="span12"></div>
           </div>
           <div class="row-fluid">
-              <div class="span4" id="mbDisk"></div>
-              <div class="span8" id="mbDiskt"></div>
-          </div>
-          <div class="row-fluid">
-              <div class="span12"></div>
-          </div>
-          <div class="row-fluid">
-              <div class="span4" id="wan"></div>
-              <div class="span8" id="want"></div>
+              <div class="span5" id="wan"></div>
+              <div class="span7" id="want"></div>
           </div>
         </div><!--Fourth Column-->
       </div><!-- row-fluid -->
